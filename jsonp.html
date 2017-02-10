@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="jsonp">jsonp发送请求</button>
+<div id="result"></div>
+<script>
+    var btn=document.getElementById('jsonp');
+    function handleResponse(response) {
+        document.getElementById("result").innerHTML=response;
+    };
+    btn.onclick=function () {
+        var script=document.createElement("script");
+        script.src="http://localhost:8081/script?callback=handleResponse";
+        document.body.appendChild(script);
+    }
+</script>
+</body>
+</html>
